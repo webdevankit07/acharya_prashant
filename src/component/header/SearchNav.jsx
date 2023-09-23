@@ -33,7 +33,7 @@ const SearchNav = () => {
                 <div className='search-Bar-container relative flex justify-between z-30 bg-white items-center sm:container  md:container lg:container xl:container 2xl:container mx-auto'>
                     <div className='left flex justify-center items-center'>
                         <div className='img-section w-[9rem]'>
-                            <img src='/src/assets/ic_videoseries.png' alt='' />
+                            <img src='/public/ic_videoseries.png' alt='' />
                         </div>
                         <div className='search-bar-section flex justify-center items-center ml-10'>
                             <div className='input-group'>
