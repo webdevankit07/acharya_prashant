@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const HeroSection = () => {
     const { heroSection, language } = useSelector((state) => state.AllData);
-    const [readmore, setReadmore] = useState(false);
+    const [readmore, setReadmore] = useState(true);
     const { title, subtitle, description, thumbnail } = heroSection;
     const image_url = `${import.meta.env.VITE_IMAGES_BASE_PATH}${thumbnail?.id}/${thumbnail?.qualities[1]}/${import.meta.env.VITE_IMAGE_KEY}`;
     const lessDescription = description?.slice(0, 150);
@@ -18,7 +18,7 @@ const HeroSection = () => {
                         <div className='thumbnail'>
                             <img src={image_url} alt='thumbnail' className='thumbnail-img' />
                             <div className='shadow'></div>
-                            <img src='/public/ic_apsignature_hindi.png' alt='ap_signature' className='ap_signature_logo' />
+                            <img src='./ic_apsignature_hindi.png' alt='ap_signature' className='ap_signature_logo' />
                         </div>
                         <div className='details'>
                             <h3 className='text-gray-700 subtitle'>{subtitle}</h3>
