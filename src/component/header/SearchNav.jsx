@@ -6,15 +6,29 @@ import { RxCross2 } from 'react-icons/rx';
 
 const SearchNav = () => {
     const [active, setActive] = useState('');
+    const [sticky, setSticky] = useState('');
     const { language } = useSelector((state) => state.AllData);
+    const SearchInput = document.querySelector('#SearchInput');
+
+    if (active === 'active') {
+        SearchInput.autofocus = true;
+    }
+
     // //! Sticky NavBar Function ....
-    // const navbarEl = document.querySelector('#navbar');
-    // const data = navbarEl.getBoundingClientRect();
-    // console.log(data);
+    const navbar = document.querySelector('#navbar');
+    const handleScroll = () => {
+        if (window.scrollY >= navbar.offsetTop) {
+            setSticky('sticky');
+        }
+        if (window.scrollY <= 90) {
+            setSticky('');
+        }
+    };
+    window.addEventListener('scroll', handleScroll);
 
     return (
         <Wrapper>
-            <div id='navbar' className={`${active}`}>
+            <div id='navbar' className={`${sticky}${active}`}>
                 <div className='search-Bar-container relative flex justify-between z-30 bg-white items-center sm:container  md:container lg:container xl:container 2xl:container mx-auto'>
                     <div className='left flex justify-center items-center'>
                         <div className='img-section w-[9rem]'>
@@ -58,6 +72,7 @@ const SearchNav = () => {
                         </div>
                     </div>
                     <div className='right relative'>
+                        <input type='text' id='SearchInput' className=' mbl-search w-[100%] border-0' />
                         <div className='block md:hidden absolute text-4xl right-48' onClick={() => setActive((prev) => (prev === 'active' ? '' : 'active'))}>
                             {active === 'active' ? <RxCross2 /> : <HiSearch />}
                         </div>
@@ -67,9 +82,6 @@ const SearchNav = () => {
                     </div>
                 </div>
                 <hr />
-                <div>
-                    <input type='text' className='mbl-search py-3 w-[100%] border-0' />
-                </div>
             </div>
         </Wrapper>
     );
@@ -78,13 +90,14 @@ const SearchNav = () => {
 const Wrapper = styled.section`
     #navbar {
         background-color: #fff;
+        width: 100%;
+        z-index: 1111;
     }
+
     .sticky {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        z-index: 111;
     }
 
     .search-Bar-container {
@@ -149,16 +162,27 @@ const Wrapper = styled.section`
     }
 
     .mbl-search {
-        display: none;
-        margin: auto;
-        width: 100%;
-        border-radius: 0 0 0.4rem 0.4rem;
+        position: absolute;
+        top: -1rem;
+        right: 16rem;
+        width: 0;
+        padding: 0;
+        outline: 1px solid #ffffff;
+        height: 35px;
+        margin-top: 4px;
+        border-radius: 5px;
         font-size: 1.3rem;
+        z-index: 99999;
+        box-shadow: 0 0 0;
+        border: 5px solid black;
         transition: all 0.5s ease;
     }
 
     .active .mbl-search {
-        display: block;
+        width: 300px;
+        padding: 0.75rem 2rem;
+        outline: 1px solid #ff5622;
+        transition: all 0.5s ease;
     }
 
     ///! ...............Responsive..............
