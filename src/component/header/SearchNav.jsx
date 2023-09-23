@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { HiSearch } from 'react-icons/hi';
 import { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
+import { Hidden } from '@mui/material';
 
 const SearchNav = () => {
     const [active, setActive] = useState('');
@@ -28,7 +29,7 @@ const SearchNav = () => {
 
     return (
         <Wrapper>
-            <div id='navbar' className={`${sticky}${active}`}>
+            <div id='navbar' className={`${sticky} ${active}`}>
                 <div className='search-Bar-container relative flex justify-between z-30 bg-white items-center sm:container  md:container lg:container xl:container 2xl:container mx-auto'>
                     <div className='left flex justify-center items-center'>
                         <div className='img-section w-[9rem]'>
@@ -72,7 +73,7 @@ const SearchNav = () => {
                         </div>
                     </div>
                     <div className='right relative'>
-                        <input type='text' id='SearchInput' className=' mbl-search w-[100%] border-0' />
+                        <input type='text' id='SearchInput' className='md:hidden mbl-search border-0' />
                         <div className='block md:hidden absolute text-4xl right-48' onClick={() => setActive((prev) => (prev === 'active' ? '' : 'active'))}>
                             {active === 'active' ? <RxCross2 /> : <HiSearch />}
                         </div>
@@ -181,7 +182,7 @@ const Wrapper = styled.section`
     .active .mbl-search {
         width: 300px;
         padding: 0.75rem 2rem;
-        outline: 1px solid #ff5622;
+        outline: 2px solid #ff5622;
         transition: all 0.5s ease;
     }
 
