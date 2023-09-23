@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { FaFacebookF, FaTwitter, FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
+import { useState } from 'react';
 
 const HeroSection = () => {
     const { heroSection, language } = useSelector((state) => state.AllData);
+    const [readmore, setReadmore] = useState(false);
     const { title, subtitle, description, thumbnail } = heroSection;
     const image_url = `${import.meta.env.VITE_IMAGES_BASE_PATH}${thumbnail?.id}/${thumbnail?.qualities[1]}/${import.meta.env.VITE_IMAGE_KEY}`;
-
+    const lessDescription = description.slice(0, 150);
     return (
         <Wrapper>
             <div className='sm:container  md:container lg:container xl:container 2xl:container mx-auto'>
@@ -20,7 +22,13 @@ const HeroSection = () => {
                         </div>
                         <div className='details'>
                             <h3 className='text-gray-700 subtitle'>{subtitle}</h3>
-                            <p className='text-gray-700 description'>{description}</p>
+                            <p className='text-gray-700 hidden md:block description'>{description}</p>
+                            <p className='text-gray-700 description md:hidden'>
+                                {readmore ? `${lessDescription}..` : description}{' '}
+                                <span className=' text-xl  text-orange-500 font-semibold' onClick={() => setReadmore((prev) => (prev === true ? false : true))}>
+                                    {readmore === true ? (language === 'en' ? 'Read more' : 'और पढ़ें') : language === 'en' ? 'Read less' : 'कम पढ़ें'}
+                                </span>
+                            </p>
                         </div>
                     </div>
                     <div className='share-icons'>
