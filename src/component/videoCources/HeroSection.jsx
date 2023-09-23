@@ -18,7 +18,7 @@ const HeroSection = () => {
                         <div className='thumbnail'>
                             <img src={image_url} alt='thumbnail' className='thumbnail-img' />
                             <div className='shadow'></div>
-                            <img src='./ic_apsignature_hindi.png' alt='ap_signature' className='ap_signature_logo' />
+                            <img src='/ic_apsignature_hindi.png' alt='ap_signature' className='ap_signature_logo' />
                         </div>
                         <div className='details'>
                             <h3 className='text-gray-700 subtitle'>{subtitle}</h3>
