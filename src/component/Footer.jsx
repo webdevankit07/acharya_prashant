@@ -9,7 +9,7 @@ const Footer = () => {
     const { language } = useSelector((state) => state.AllData);
 
     return (
-        <Wrapper className='text-white bg-[#0F172A] py-16'>
+        <Wrapper className='text-white bg-[#0F172A] pt-16'>
             <div className='sm:container  md:container lg:container xl:container 2xl:container mx-auto'>
                 <div className='footer-container m-auto flex justify-center gap-5'>
                     <div className='list'>
