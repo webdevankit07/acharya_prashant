@@ -8,13 +8,13 @@ const Accordian = ({ question, answer }) => {
     return (
         <div>
             <div className={`mt-5 ${active} overflow-hidden`}>
-                <div className='flex justify-between w-[900px] cursor-pointer' onClick={() => setActive(active === 'active' ? '' : 'active')}>
-                    <h3 className='text-2xl font-semibold text-gray-700'>{question}</h3>
+                <div className='flex justify-between w-[550px] md:w-[900px] cursor-pointer' onClick={() => setActive(active === 'active' ? '' : 'active')}>
+                    <h3 className='text-xl md:text-2xl font-semibold text-gray-700'>{question}</h3>
                     <h3 className='drop-down text-5xl'>
                         <RiArrowDropDownLine />
                     </h3>
                 </div>
-                <div className='answer w-[800px] px-2 text-2xl text-gray-700'>{answer}</div>
+                <div className='answer w-[550px] md:w-[800px] px-2 text-2xl text-gray-700'>{answer}</div>
             </div>
             <div className='pt-1'>
                 <hr />

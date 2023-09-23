@@ -63,7 +63,7 @@ const Wrapper = styled.section`
     ///! ..........Responsive................
     @media (width <= 768px) {
         .faq-container {
-            padding: 5rem 2rem;
+            padding: 3rem 2rem;
             flex-direction: column;
             /* width: 100%; */
 
