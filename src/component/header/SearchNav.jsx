@@ -199,6 +199,12 @@ const Wrapper = styled.section`
         .btn-right {
             font-size: 0.5rem;
         }
+        .active .img-section img {
+            opacity: 0;
+        }
+        .active .mbl-search {
+            width: 240%;
+        }
     }
 `;
 

@@ -10,10 +10,10 @@ const FaqSection = () => {
             <div className='sm:container  md:container lg:container xl:container 2xl:container mx-auto'>
                 <div className='faq-container flex gap-8 p-24 bg-[#F9FBFD]'>
                     <div className='left w-1/3'>
-                        <h3 className='font-bold text-2xl mb-3'>{language === 'hi' ? 'अक्सर पूछे जाने वाले प्रश्न' : 'FAQs'}</h3>
+                        <h3 className='font-bold text-xl md:text-2xl mb-3'>{language === 'hi' ? 'अक्सर पूछे जाने वाले प्रश्न' : 'FAQs'}</h3>
                         <div>
                             {language === 'hi' ? (
-                                <div className='text-2xl pr-32 text-gray-600'>
+                                <div className='text-xl md:text-2xl md:pr-32 text-gray-600'>
                                     आप जिस उत्तर की तलाश कर रहे हैं वह नहीं मिल रहा है? कृपया हमारी{' '}
                                     <a href='https://acharyaprashant.org/en/technical-support' target='_blank' rel='noreferrer' className='text-orange-600'>
                                         सपोर्ट
@@ -70,6 +70,11 @@ const Wrapper = styled.section`
             .left {
                 width: 100%;
             }
+        }
+
+        .active .answer {
+            height: 120px;
+            padding: 0.5rem 0;
         }
     }
 `;

@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { FaFacebookF, FaTwitter, FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
 import { useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const HeroSection = () => {
     const { heroSection, language } = useSelector((state) => state.AllData);
@@ -16,18 +18,15 @@ const HeroSection = () => {
                     <h1 className='text-gray-700 title'>{title}</h1>
                     <div className='hero-container'>
                         <div className='thumbnail'>
-                            <img src={image_url} alt='thumbnail' className='thumbnail-img' />
+                            <LazyLoadImage effect='blur' src={image_url} alt='thumbnail' className='thumbnail-img' />
                             <div className='shadow'></div>
                             <img src='/ic_apsignature_hindi.png' alt='ap_signature' className='ap_signature_logo' />
                         </div>
                         <div className='details'>
                             <h3 className='text-gray-700 subtitle'>{subtitle}</h3>
                             <p className='text-gray-700 hidden md:block description'>{description}</p>
-                            <p className='text-gray-700 description md:hidden'>
-                                {readmore ? `${lessDescription}..` : description}{' '}
-                                <span className=' text-xl  text-orange-500 font-semibold' onClick={() => setReadmore((prev) => (prev === true ? false : true))}>
-                                    {readmore === true ? (language === 'en' ? 'Read more' : 'और पढ़ें') : language === 'en' ? 'Read less' : 'कम पढ़ें'}
-                                </span>
+                            <p className='text-gray-700 description md:hidden' onClick={() => setReadmore((prev) => (prev === true ? false : true))}>
+                                {readmore ? `${lessDescription}...` : description} <span className=' text-xl  text-orange-500 font-semibold'>{readmore === true ? (language === 'en' ? 'Read more' : 'और पढ़ें') : language === 'en' ? 'Read less' : 'कम पढ़ें'}</span>
                             </p>
                         </div>
                     </div>
