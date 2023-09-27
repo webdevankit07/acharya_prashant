@@ -20,7 +20,7 @@ const Nav = () => {
                     <div className='left flex justify-center items-center gap-2'>
                         {/* //! ......Logo....... */}
                         <div className='logo'>
-                            <img className='logo-img' src='/src/assets/Acharya_Prashant_favicon.png' alt='logo' />
+                            <img className='logo-img' src='/Acharya_Prashant_favicon.png' alt='logo' />
                         </div>
 
                         {/* //! .......NavItems.......  */}
