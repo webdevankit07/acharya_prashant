@@ -1,4 +1,4 @@
-import HeroSection from '../component/videoCources/heroSection';
+import HeroSection from '../component/videoCources/HeroSection';
 import VideoSection from '../component/videoCources/VideoSection';
 import OtherVideos from '../component/videoCources/OtherVideos';
 import { useEffect, useState } from 'react';
@@ -23,7 +23,18 @@ const VideoCource = () => {
     if (isLoading) {
         return (
             <div className='h-[90vh] grid place-items-center'>
-                <Oval height={80} width={80} color='#d24115' wrapperStyle={{}} wrapperClass='' visible={true} ariaLabel='oval-loading' secondaryColor='#d24115' strokeWidth={2} strokeWidthSecondary={2} />
+                <Oval
+                    height={80}
+                    width={80}
+                    color='#d24115'
+                    wrapperStyle={{}}
+                    wrapperClass=''
+                    visible={true}
+                    ariaLabel='oval-loading'
+                    secondaryColor='#d24115'
+                    strokeWidth={2}
+                    strokeWidthSecondary={2}
+                />
             </div>
         );
     }
